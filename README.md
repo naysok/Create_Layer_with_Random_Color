@@ -10,7 +10,7 @@
 
 ## How to Use  
 ライノのコマンド作成は、PythonEdtor から New >> Command で以下の写真のように設定する。  
-そこに _src/CreateLayer_cmd.py の中身をコピペしスクリプトを実行すると、コマンドが作成されるはず。  
+そこに [_src/CreateLayer_cmd.py](https://github.com/naysok/Create_Layer_with_Random_Color/blob/main/_src/CreateLayer%EF%BC%BFcmd.py) の中身をコピペしスクリプトを実行すると、コマンドが作成されるはず。  
 
 ![photo](_image/220807_0.png)  
 
