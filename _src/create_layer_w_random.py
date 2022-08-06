@@ -89,6 +89,10 @@ def create_layer():
     
     rs.AddLayer(color=new_rgb)
 
-create_layer()
+
+count = 5
+
+for i in range(count):
+    create_layer()
 
 # debug_hues()
