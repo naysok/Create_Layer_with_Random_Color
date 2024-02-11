@@ -8,14 +8,18 @@ __commandname__ = "CreateLayer"
 
 
 def rgb_to_hsl(rgb):
+  
   h, s, l  = list(rs.ColorRGBToHLS(rgb))
   hsl = rd.ColorHSL(h, s, l)
   # print("hls : {}, {}, {}".format(hsl.H, hsl.S, hsl.L))
+  
   return [hsl.H, hsl.S, hsl.L]
 
 def hsl_to_rgb(hsl):
+  
   rgb = rd.ColorHSL.ToArgbColor(hsl)
   # print("rgb : {},{},{}".format(rgb.R, rgb.G, rgb.B))
+  
   return [rgb.R, rgb.G, rgb.B]
 
 def get_colors():
@@ -90,8 +94,10 @@ def create_layer():
   new_rgb = hsl_to_rgb(rd.ColorHSL(new_hue, 0.5 + random.uniform(0, 0.5), 0.5 + random.uniform(-0.2, 0.2)))
   # print(new_rgb)
   
-  rs.AddLayer(color=new_rgb)
-
+  new_name = rs.AddLayer(color=new_rgb)
+  # print(new_name)
+  
+  return new_name
 
 
 # debug_hues()
@@ -101,11 +107,20 @@ def create_layer():
 # The command name is defined by the filname minus "_cmd.py"
 def RunCommand( is_interactive ):
   
+  VERSION = "2.0.0.0"
+  print("***RUN CreateLayer (ver {})".format(VERSION))
+  
   count = 5
   
   for i in range(count):
-    create_layer()
-  
+    new_layer = create_layer()
+    
+    if i == 0:
+      new_layers = "***" + new_layer
+    else:
+      new_layers = new_layers + ", " + new_layer
+      
+  print(new_layers)
   # you can optionally return a value from this function
   # to signify command result. Return values that make
   # sense are
